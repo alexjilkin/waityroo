@@ -1,7 +1,6 @@
 body {
     width: 100%;
     height: 100%;
-    background-color: orange;
 }
 
 .container {
@@ -9,23 +8,18 @@ body {
     width: 100%;
     height: 100%;
 }
-.anchor {
-    width: 100%;
-    height: 100%
-}
 
 .bar {
     border-radius: 0.5px;
     height: 80px;
     width: 0px;
-    background-color: lightcoral;
+    background-color: orange;
     animation : swoosh calc(1s * var(--delta)) forwards calc(0.1s * var(--index));
 }
 
 .bar.left {
     float: right;
     clear: right;
-    background-color: lightsalmon;
 }
 
 @keyframes swoosh {
