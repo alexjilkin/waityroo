@@ -7,26 +7,29 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+
 }
 
 .bar {
-    border-radius: 0.5px;
     height: 80px;
-    width: 0px;
+    width: 1%;
+    box-sizing: border-box;
     background-color: orange;
-    animation : swoosh calc(1s * var(--delta)) forwards calc(0.1s * var(--index));
+    animation : swoosh calc(1s * var(--delta)) ease forwards calc(0.1s * var(--index));
+    transform-origin: left;
 }
 
 .bar.left {
     float: right;
     clear: right;
+    transform-origin: right;
 }
 
 @keyframes swoosh {
-    0% {
-        width: 0%;
+    from {
+        transform: scaleX(0);
     }
-    100% {
-        width: 100%;
+    to {
+        transform: scaleX(100);
     }
 }

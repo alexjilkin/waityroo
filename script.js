@@ -1,14 +1,21 @@
-(() => {
+const swoosh = (() => {
     const delta = 2;
-    const height = document.documentElement.clientHeight;
-    const count = Math.round(height / 80);
-    let lastRandom = Math.random() * (100) + 80;
+    let height;
+    let count;
+    let lastBrightness = Math.random() * (70) + 80;
+    let lastNegative = -1;
 
-    function swoosh(isRight = true) {
-        const container = document.createElement('div');
+    function swoosh(anchor, isRight = true) {
+        anchor.style.position = 'relative'
+        height = anchor.clientHeight;
+        count = Math.round(height / 80);
+
+        const container = document.createElement('div')
         container.className = 'container'
-        const brightness = lastRandom + (((Math.random() * 20) + 10) * (Math.random() > 0.5 ? -1 : 1));
-        lastRandom = brightness;
+
+        lastNegative *= -1
+        const brightness = lastBrightness + (((Math.random() * 15) + 20) * lastNegative)
+        lastBrightness = brightness;
 
         for (let i = 0; i < count; i++) {
             const swoosh = document.createElement('div')
@@ -17,10 +24,10 @@
             container.appendChild(swoosh)
         }
         
-        document.body.appendChild(container)
-        setTimeout(() => swoosh(!isRight), delta * 1000);
+        anchor.appendChild(container)
+        setTimeout(() => swoosh(anchor, !isRight), delta * 1000)
         setTimeout(() => container.remove(), delta * 2500)
     }
 
-    swoosh()
+    return swoosh
 })()
