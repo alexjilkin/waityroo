@@ -4,14 +4,13 @@
         <link rel="stylesheet" href="style.css" />
         <link rel="shortcut icon" href="#">
     </head>
-    <body>
-        <div id="anchor" style="width: 100%; height:100%">
+    <body style="display: flex; justify-content: center; align-items: center;">
+        <div id="anchor" style="width: 50%; height:50%">
 
         </div>
         <script src="script.js"> </script>
         <script>
-            console.log(document.getElementById('anchor'))
-            swoosh(document.getElementById('anchor'))
+            swoosh().init(document.getElementById('anchor'));
         </script>
     </body>
 </html>
